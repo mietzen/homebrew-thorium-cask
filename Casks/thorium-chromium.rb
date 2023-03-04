@@ -15,6 +15,7 @@ cask "thorium-chromium" do
     url "https://github.com/Alex313031/Thorium-Special/releases"
     regex(/href=.*?(M\d+(?:[._-]\d+)+).*ARM64\.dmg/i)
     strategy :page_match do |page, regex|
+      puts(page)
       page.scan(regex).map { |match| match[0] }
     end
   end
