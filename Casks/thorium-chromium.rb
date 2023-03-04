@@ -13,7 +13,7 @@ cask "thorium-chromium" do
 
   livecheck do
     url "https://github.com/Alex313031/Thorium-Special/releases"
-    regex(/MacOS ARM and X64 Release - (M\d+.\d+.\d+.\d+)/i)
+    regex(/MacOS [\w ]+ - (M\d+.\d+.\d+.\d+)<\/h2>\n$/i)
   end
 
   app "Thorium.app"
