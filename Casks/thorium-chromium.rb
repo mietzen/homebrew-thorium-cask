@@ -13,8 +13,10 @@ cask "thorium-chromium" do
 
   livecheck do
     url "https://github.com/Alex313031/Thorium-Special/releases"
-    strategy :page_match
-    regex(/.*(M\d+.\d+.\d+.\d+-?\d?)\/Thorium_MacOS_ARM64\.dmg/i)
+    strategy :page_match do |page|
+      page.scan(/.*(M\d+.\d+.\d+.\d+-?\d?)\/Thorium_MacOS_ARM64\.dmg/i)
+          .map { |match| match&.first }
+    end
   end
 
   app "Thorium.app"
