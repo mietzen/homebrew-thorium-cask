@@ -14,7 +14,7 @@ cask "thorium-chromium" do
   livecheck do
     url "https://github.com/Alex313031/Thorium-Special/releases"
     strategy :page_match
-    regex(/href=\"\/Alex313031\/Thorium-Special\/releases\/download\/(M\d+.\d+.\d+.\d+-?\d?)\/Thorium_MacOS_ARM64\.dmg\"/i)
+    regex(/href=.*(M\d+.\d+.\d+.\d+-?\d?)\/Thorium_MacOS_ARM64\.dmg/i)
   end
 
   app "Thorium.app"
