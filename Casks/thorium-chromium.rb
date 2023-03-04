@@ -17,7 +17,7 @@ cask "thorium-chromium" do
     strategy :page_match do |page, regex|
       page.scan(regex).map { |match| match[0] }
     end
-
+  end
   app "Thorium.app"
 
   zap trash: [
