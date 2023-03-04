@@ -10,8 +10,9 @@ cask "thorium-chromium" do
     sha256 "d4e8258a9e91618d2da82968285498f035f31e4912646479c225b1a4ae43675c"
   end
 
-  url "https://github.com/Alex313031/Thorium-Special/releases/download/#{version}/Thorium_MacOS_#{arch}.dmg"
-
+  url "https://github.com/Alex313031/Thorium-Special/releases/download/#{version}/Thorium_MacOS_#{arch}.dmg",
+      verified: "github.com/Alex313031/Thorium-Special/"
+  puts("https://github.com/Alex313031/Thorium-Special/releases/download/#{version}/Thorium_MacOS_#{arch}.dmg")
   name "Thorium"
   desc "Thorium - The fastest browser on Earth."
   homepage "https://thorium.rocks/"
