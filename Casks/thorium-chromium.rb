@@ -16,12 +16,6 @@ cask "thorium-chromium" do
   desc "Thorium - The fastest browser on Earth."
   homepage "https://thorium.rocks/"
 
-  conflicts_with cask: [
-    "chromium",
-    "eloston-chromium",
-    "freesmug-chromium"
-  ]
-
   app "Thorium.app"
 
   zap trash: [
