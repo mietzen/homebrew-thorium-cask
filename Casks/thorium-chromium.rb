@@ -1,5 +1,3 @@
-Homebrew.install_gem_setup_path! "pry"
-Homebrew.install_gem_setup_path! "pry-byebug", executable: "pry"
 require "pry-byebug"; binding.pry
 
 cask "thorium-chromium" do
