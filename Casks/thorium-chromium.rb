@@ -15,7 +15,7 @@ cask "thorium-chromium" do
     url "https://api.github.com/repos/Alex313031/Thorium-Special/releases"
     regex(/.*MacOS.*/i)
     strategy :json do |json, regex|
-      json[].select { |item| item["name"]&.match?(regex) }
+      json["versions"].select { |item| item["name"]&.match?(regex) }
                       .map { |item| item["tag_name"] }
     end
   end
