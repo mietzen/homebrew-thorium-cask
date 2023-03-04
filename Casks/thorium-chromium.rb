@@ -12,7 +12,19 @@ cask "thorium-chromium" do
   homepage "https://thorium.rocks/"
 
   livecheck do
-    skip "No version information available"
+    url "https://github.com/Alex313031/Thorium-Special/releases"
+    strategy :page_match
+    regex(/MacOS [\w ]+ - (M\d+.\d+.\d+.\d+)<\/h2>\n$/i)
+  end
+
+
+  livecheck do
+    url "https://api.github.com/repos/Alex313031/Thorium-Special/releases"
+    regex(/MacOS [\w ]+ - (M\d+.\d+.\d+.\d+)/i)
+    strategy :json do |json, regex|
+      json["name"].select { |item| item["name"]&.match?(regex) }
+                      .map { |item| item["name"][regex, 1] }
+    end
   end
 
   app "Thorium.app"
