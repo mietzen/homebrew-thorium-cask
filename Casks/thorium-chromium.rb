@@ -12,13 +12,14 @@ cask "thorium-chromium" do
   homepage "https://thorium.rocks/"
 
   livecheck do
-    url "https://github.com/Alex313031/Thorium-Special/releases"
-    regex(/href=.*?(M\d+(?:[._-]\d+)+).*ARM64\.dmg/i)
-    strategy :page_match do |page, regex|
-      puts(page)
-      page.scan(regex).map { |match| match[0] }
+    url "https://api.github.com/repos/Alex313031/Thorium-Special/releases"
+    regex(/.*MacOS.*/i)
+    strategy :json do |json, regex|
+      json[].select { |item| item["name"]&.match?(regex) }
+                      .map { |item| item["tag_name"] }
     end
   end
+  
   app "Thorium.app"
 
   zap trash: [
