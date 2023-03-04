@@ -25,10 +25,10 @@ cask "thorium-chromium" do
   app "Thorium.app"
 
   zap trash: [
-    "~/Library/Application Support/Chromium",
-    "~/Library/Caches/Chromium",
-    "~/Library/Preferences/org.chromium.Chromium.plist",
-    "~/Library/Saved Application State/org.chromium.Chromium.savedState",
+    "~/Library/Application Support/Thorium",
+    "~/Library/Caches/Thorium",
+    "~/Library/Preferences/org.chromium.Thorium.plist",
+    "~/Library/Saved Application State/org.chromium.Thorium.savedState",
   ]
 
 end
