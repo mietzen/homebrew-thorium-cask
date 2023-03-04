@@ -4,11 +4,9 @@ cask "thorium-chromium" do
   version "M109.0.5414.120-2"
 
   on_intel do
-    arch_name "x64"
     sha256 "d4ec6db1cd028041166dacb3a121406ce1619ebd965073600f9e43206b42f92b"
   end
   on_arm do
-    arch_name "ARM64"
     sha256 "d4e8258a9e91618d2da82968285498f035f31e4912646479c225b1a4ae43675c"
   end
 
