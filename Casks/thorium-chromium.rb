@@ -17,16 +17,6 @@ cask "thorium-chromium" do
     regex(/MacOS [\w ]+ - (M\d+.\d+.\d+.\d+)<\/h2>\n$/i)
   end
 
-
-  livecheck do
-    url "https://api.github.com/repos/Alex313031/Thorium-Special/releases"
-    regex(/MacOS [\w ]+ - (M\d+.\d+.\d+.\d+)/i)
-    strategy :json do |json, regex|
-      json["name"].select { |item| item["name"]&.match?(regex) }
-                      .map { |item| item["name"][regex, 1] }
-    end
-  end
-
   app "Thorium.app"
 
   zap trash: [
