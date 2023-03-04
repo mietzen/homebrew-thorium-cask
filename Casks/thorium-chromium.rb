@@ -1,5 +1,3 @@
-require "pry-byebug"; binding.pry
-
 cask "thorium-chromium" do
   arch arm: "arm64", intel: "x86-64"
 
