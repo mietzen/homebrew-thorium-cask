@@ -5,10 +5,18 @@ cask "thorium-chromium" do
   sha256 arm:   "1d49f062c8806b282aadec0504bc7b756a2805c82cae41e675206acfae198610",
          intel: "d4ec6db1cd028041166dacb3a121406ce1619ebd965073600f9e43206b42f92b"
 
-  url "https://github.com/Alex313031/Thorium-Special/releases/download/#{version}/Thorium_MacOS_#{arch}.dmg"
+  url "https://github.com/Alex313031/Thorium-Special/releases/download/#{version}/Thorium_MacOS_#{arch}.dmg",
+      verified: "github.com/Alex313031/Thorium-Special/"
   name "Thorium"
   desc "Thorium - The fastest browser on Earth"
   homepage "https://thorium.rocks/"
+
+  livecheck do
+    url "https://github.com/Alex313031/Thorium-Special/releases"
+    regex(/<h2 class="sr-only" id="[a-z0-9\-]+">MacOS ARM and X64 Release - (M\d{3}.\d+.\d+.\d+)<\/h2>/i)
+
+    <h2 class="sr-only" id="hd-78a45b13">MacOS ARM and X64 Release - M109.0.5414.120</h2>
+  end
 
   app "Thorium.app"
 
