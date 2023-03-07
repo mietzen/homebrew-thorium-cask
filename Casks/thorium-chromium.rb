@@ -16,10 +16,10 @@ cask "thorium-chromium" do
     regex(%r{/([^/]+?)/Thorium[._-]MacOS[._-]#{arch}\.dmg}i)
     strategy :json do |json, regex|
       json.map do |release|
-        asset = release["assets"]&.find { |asset| asset["browser_download_url"]&.match(regex) }
-        next if asset.blank?
+        curr_asset = release["assets"]&.find { |asset| asset["browser_download_url"]&.match(regex) }
+        next if curr_asset.blank?
 
-        asset["browser_download_url"][regex, 1]
+        curr_asset["browser_download_url"][regex, 1]
       end
     end
   end
