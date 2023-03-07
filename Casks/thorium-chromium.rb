@@ -13,10 +13,14 @@ cask "thorium-chromium" do
 
   livecheck do
     url "https://api.github.com/repos/Alex313031/Thorium-Special/releases"
-    regex(/.*MacOS.*/i)
+    regex(%r{/([^/]+?)/Thorium[._-]MacOS[._-]#{arch}\.dmg}i)
     strategy :json do |json, regex|
-      json["versions"].select { |item| item["name"]&.match?(regex) }
-                      .map { |item| item["tag_name"] }
+      json.map do |release|
+        asset = release["assets"]&.find { |asset| asset["browser_download_url"]&.match(regex) }
+        next if asset.blank?
+
+        asset["browser_download_url"][regex, 1]
+      end
     end
   end
 
